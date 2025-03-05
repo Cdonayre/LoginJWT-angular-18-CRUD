@@ -1,0 +1,11 @@
+<div class="flex justify-center">
+    <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" (click)="previousPage()">
+      Previous
+    </button>
+    <button *ngFor="let page of pages" [class.active]="currentPage === page" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4" (click)="changePage(page)">
+      {{ page }}
+    </button>
+    <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r" (click)="nextPage()">
+      Next
+    </button>
+  </div>

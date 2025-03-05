@@ -1,35 +1,48 @@
-<div class="overflow-x-auto">
-    <table class="min-w-full bg-white">
-      <thead>
-        <tr>
-          <th class="px-4 py-2 bg-gray-200 text-gray-600 border-b border-gray-300 text-left text-sm uppercase font-semibold">
-            IPRESS
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@9.0.3"></script>
+<script>
+  if (document.getElementById("search-table") && typeof simpleDatatables.DataTable !== 'undefined') {
+    const dataTable = new simpleDatatables.DataTable("#search-table", {
+        searchable: true,
+        sortable: false
+    });
+  }
+  </script>
+
+
+<table id="search-table">
+  <thead>
+      <tr>
+          <th>
+              <span class="flex items-center">
+                  IPRESS
+              </span>
           </th>
-          <th class="px-4 py-2 bg-gray-200 text-gray-600 border-b border-gray-300 text-left text-sm uppercase font-semibold">
-            Nombre
+          <th>
+              <span class="flex items-center">
+                  Nombre
+              </span>
           </th>
-          <th class="px-4 py-2 bg-gray-200 text-gray-600 border-b border-gray-300 text-left text-sm uppercase font-semibold">
-            Acciones
+          <th>
+              <span class="flex items-center">
+                  Acciones
+              </span>
           </th>
-        </tr>
-      </thead>
-      <tbody>
-          @for (establecimiento of establecimientos; track $index){
-        <tr>
-          <th class="px-4 py-2 border-b border-gray-300">{{establecimiento.codigo}}</th>
-          <td class="px-4 py-2 border-b border-gray-300">{{establecimiento.nombre}}</td>
-          <td class="px-4 py-2 border-b border-gray-300">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs">
-              Editar
-            </button>
-            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs ml-1">
-              Eliminar
-            </button>
-          </td>
-        </tr>
+      </tr>
+  </thead>
+  <tbody>
+    @for (establecimiento of establecimientos; track $index){
+      <tr>
+        <th class="px-4 py-2 border-b border-gray-300">{{establecimiento.codigo}}</th>
+        <td class="px-4 py-2 border-b border-gray-300">{{establecimiento.nombre}}</td>
+        <td class="px-4 py-2 border-b border-gray-300">
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded text-xs">
+            Editar
+          </button>
+          <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs ml-1">
+            Eliminar
+          </button>
+        </td>
+      </tr>
     }
-        <!-- More rows here -->
-      </tbody>
-    </table>
-  </div>
-  <app-pagination/>
+  </tbody>
+</table>

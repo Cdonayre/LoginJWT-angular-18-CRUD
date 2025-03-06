@@ -32,7 +32,21 @@ export class EstablecimientosService {
     public getEstablecimientos():Observable<any>{
       return this.http.get(this.URLbase, this.getHttpOptions());  
     }  
-    
+
+    public getEstablecimiento(id:number):Observable<any>{
+      return this.http.get(this.URLbase+'/'+id, this.getHttpOptions());
+    }
+
+    public crearEstablecimiento(establecimiento: Esablecimientos):Observable<any>{
+      return this.http.post(this.URLbase, establecimiento, this.getHttpOptions());
+    }
+
+    public updateEstablecimiento(establecimiento: Esablecimientos):Observable<any>{
+      return this.http.put(this.URLbase+'/'+establecimiento.categoria_id, establecimiento, this.getHttpOptions());
+    }
+    public deleteEstablecimiento(id:number):Observable<any>{
+      return this.http.delete(this.URLbase+'/'+id, this.getHttpOptions());
+    }
 }
 
 

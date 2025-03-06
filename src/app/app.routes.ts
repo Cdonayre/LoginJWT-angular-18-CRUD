@@ -5,6 +5,7 @@ import MostrarEstablecimientosComponent from './api/establecimientos/mostrar-est
 import { MostrarCategoriaComponent } from './api/categorias/mostrar-categoria/mostrar-categoria.component';
 import { MostrarDistritosComponent } from './api/distritos/mostrar-distritos/mostrar-distritos.component';
 import { MostrarRisComponent } from './api/ris/mostrar-ris/mostrar-ris.component';
+import { CrearEstablecimientoComponent } from './api/establecimientos/crear-establecimiento/crear-establecimiento.component';
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
     {path: 'categorias', component: MostrarCategoriaComponent},
     {path: 'admin', component: AdminComponent},
     {path: 'establecimientos', component: MostrarEstablecimientosComponent},
-    {path:'distritos', component: MostrarDistritosComponent},
+    {path: 'establecimientos/crear', component: CrearEstablecimientoComponent},
+    {path: 'distritos', component: MostrarDistritosComponent},
     {path: 'ris', component: MostrarRisComponent}
 ];

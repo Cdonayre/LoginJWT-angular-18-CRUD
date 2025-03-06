@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
@@ -46,6 +46,11 @@ export class EstablecimientosService {
     }
     public deleteEstablecimiento(id:number):Observable<any>{
       return this.http.delete(this.URLbase+'/'+id, this.getHttpOptions());
+    }
+
+    getEstablecimientosWithParams(userId: number): Observable<any> {
+      let params = new HttpParams().set('userId', userId);
+      return this.http.get(this.URLbase, { params });
     }
 }
 

@@ -1,20 +1,31 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Esablecimientos, EstablecimientosService } from '../../../services/establecimientos.service';
 import { Router } from '@angular/router';
+import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
+
 
 
 @Component({
   selector: 'app-mostrar-establecimientos',
   standalone: true,
-  imports: [],
+  imports: [ CommonModule],
   templateUrl: './mostrar-establecimientos.component.html',
-  styleUrl: './mostrar-establecimientos.component.css'
+  styleUrl: './mostrar-establecimientos.component.css',
+  template: `
+  <div>
+    <ngx-datatable [rows]="rows" [columns]="columns"> </ngx-datatable>
+  </div>
+`
 })
-export default class MostrarEstablecimientosComponent {
+export default class MostrarEstablecimientosComponent implements OnInit{
+
+
+
   establecimientoService = inject(EstablecimientosService);
   establecimientos: Esablecimientos[] = [];
   router = inject(Router);
-  constructor(){
+  establecimientoCreado: any;
+  constructor( ) {
 
    this.establecimientoService.getEstablecimientos().subscribe({
     next: (datos:any) => {
@@ -25,13 +36,12 @@ export default class MostrarEstablecimientosComponent {
     }
   });
 
-   this.establecimientoService.crearEstablecimiento(this.establecimientos).subscribe({
-    next:(datos:any)=>{
-      this.router.navigate(["establecimientos"]);
-    }, 
-    error:(err)=>{
-      console.log(err);
-    }
-   });
+
+
   }
+
+
+  ngOnInit(): void {
+      
+}
 }

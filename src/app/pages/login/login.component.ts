@@ -13,7 +13,7 @@ import { AuthService } from '../../auth/auth.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,MatButtonModule, MatIconModule, MatDividerModule,RouterModule],
+  imports: [MatFormFieldModule, MatInputModule,ReactiveFormsModule, FormsModule,RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -35,7 +35,7 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value)
       .subscribe((data:any)=> {
          if(this.authService.isLoggedIn()){
-          this.router.navigate(['/establecimientos']);
+          this.router.navigate(['/dashboard']);
          }}
       );
     }

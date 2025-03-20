@@ -1,4 +1,4 @@
-<div class="overflow-x-auto">
+<!-- <div class="overflow-x-auto">
     <table class="min-w-full bg-white">
       <thead>
         <tr>
@@ -17,7 +17,32 @@
           <td class="px-4 py-2 border-b border-gray-300">{{ris1.nombre}}</td>
         </tr>
     }
-        <!-- More rows here -->
-      </tbody>
+        More rows here -->
+      <!-- </tbody>
     </table>
-  </div>
+  </div> -->
+
+  <!-- component -->
+<div class="container">
+	<table class="text-center w-full">
+		<thead class="bg-black flex text-white w-full">
+			<tr class="flex w-full mb-4">
+				<th class="p-4 w-1/4">ID</th>
+				<th class="p-4 w-1/4">RIS</th>
+        <th class="p-4 w-1/4">Fecha creación</th>
+        <th class="p-4 w-1/4">Fecha actualización</th>
+			</tr>
+		</thead>
+    <!-- Remove the nasty inline CSS fixed height on production and replace it with a CSS class — this is just for demonstration purposes! -->
+		<tbody class="bg-white text-black flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 50vh;">
+      @for(ris1 of ris; track $index){
+			<tr class="flex w-full mb-4">
+          <td class="p-4 w-1/4">{{ris1.id}}</td>
+          <td class="p-4 w-1/4">{{ris1.nombre}}</td>
+          <td class="p-4 w-1/4">{{ris1.created_at}}</td>
+          <td class="p-4 w-1/4">{{ris1.updated_at}}</td>
+        </tr>
+      }
+		</tbody>
+	</table>
+</div>

@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
-import { OnInit } from '@angular/core';
-import { CommonModule, NgIfContext } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,CommonModule,RouterLink, FormsModule, ],
+  imports: [RouterOutlet, CommonModule, RouterLink, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

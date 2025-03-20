@@ -11,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
   templateUrl: './crear-establecimiento.component.html',
   styleUrl: './crear-establecimiento.component.css'
 })
-export class CrearEstablecimientoComponent {
+export default class CrearEstablecimientoComponent {
 establecimientoService = Inject(EstablecimientosService);
 establecimientos: Esablecimientos[] = [];
 form!: FormGroup;

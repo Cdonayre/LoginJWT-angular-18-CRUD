@@ -8,7 +8,7 @@ import { Categorias, CategoriaService } from '../../../services/categoria.servic
   templateUrl: './mostrar-categoria.component.html',
   styleUrl: './mostrar-categoria.component.css'
 })
-export class MostrarCategoriaComponent {
+export default class MostrarCategoriaComponent {
   categoriaService = inject(CategoriaService);
   categorias: Categorias[] = [];
  

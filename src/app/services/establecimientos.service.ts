@@ -37,8 +37,8 @@ export class EstablecimientosService {
       return this.http.get(this.URLbase+'/'+id, this.getHttpOptions());
     }
 
-    public crearEstablecimiento(establecimiento: Esablecimientos):Observable<any>{
-      return this.http.post(this.URLbase, establecimiento, this.getHttpOptions());
+    public crearEstablecimiento(establecimiento: Esablecimientos):Observable<Esablecimientos>{
+      return this.http.post<Esablecimientos>(this.URLbase, establecimiento, this.getHttpOptions());
     }
 
     public updateEstablecimiento(establecimiento: Esablecimientos):Observable<any>{

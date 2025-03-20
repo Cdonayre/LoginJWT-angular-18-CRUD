@@ -5,16 +5,14 @@
       <div class="container-fluid">
         <button class="btn btn-primary my-2 my-sm-0"  type="submit">
           <a routerLink="/establecimientos/crear">Añadir</a>
-          
         </button>
-
       </div>
-
     </nav>
 
 </div>
 
-<div class="snap-y content-center">
+<div class="flex items-center sm:justify-center ml-4 sm:ml-0">
+  
   <div class="scroll-m-6 snap-start">
 
     <table class="table-fixed content-center border-collapse border border-slate-500 text-center text-wrap">
@@ -40,13 +38,13 @@
           <tbody>
             @for (establecimiento of establecimientos; track $index){
       <tr>
-        <th class="px-4 py-2 border-b border border-slate-600">{{establecimiento.codigo}}</th>
-        <td class="px-4 py-2 border-b border border-slate-600">{{establecimiento.nombre}}</td>
-        <td class="px-4 py-2 border-b border border-slate-600">
-          <button class="transition ease-in-out delay-150 bg-blue-500 hover:bg-blue-700 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-10 text-white font-bold py-1 px-2 rounded text-xs">
+        <th class="px-2 py-1 border-b border border-slate-600 text-sm">{{establecimiento.codigo}}</th>
+        <td class="px-2 py-1 border-b border border-slate-600 text-xs">{{establecimiento.nombre}}</td>
+        <td class="px-2 py-1 border-b border border-slate-600">
+          <button class="text-xstransition ease-in-out delay-150 bg-blue-500 hover:bg-blue-700 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-10 text-white font-bold py-1 px-2 rounded text-xs">
             Editar
           </button>
-          <button class="cursor-not-allowed bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs ml-1">
+          <button class="text-xs cursor-not-allowed bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs ml-1">
             Eliminar
           </button>
         </td>
@@ -55,4 +53,5 @@
   </tbody>
 </table>
 </div>
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
 </div>

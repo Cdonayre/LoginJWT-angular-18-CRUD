@@ -8,7 +8,7 @@ import { Distritos, DistritosService } from '../../../services/distritos.service
   templateUrl: './mostrar-distritos.component.html',
   styleUrl: './mostrar-distritos.component.css'
 })
-export class MostrarDistritosComponent {
+export default class MostrarDistritosComponent {
  distritoService = inject(DistritosService);
  distritos: Distritos[] = [];
 

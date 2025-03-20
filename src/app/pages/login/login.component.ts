@@ -18,7 +18,7 @@ import { AuthService } from '../../auth/auth.service';
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginComponent {
+export default class LoginComponent {
 
   authService =  inject(AuthService);
   router = inject(Router);

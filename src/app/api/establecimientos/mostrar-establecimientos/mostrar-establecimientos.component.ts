@@ -1,14 +1,15 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Esablecimientos, EstablecimientosService } from '../../../services/establecimientos.service';
 import { Router } from '@angular/router';
-import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 
 
 @Component({
   selector: 'app-mostrar-establecimientos',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [ CommonModule, MatSlideToggleModule ],
   templateUrl: './mostrar-establecimientos.component.html',
   styleUrl: './mostrar-establecimientos.component.css',
   template: `
@@ -36,6 +37,9 @@ export default class MostrarEstablecimientosComponent implements OnInit{
     }
   });
 
+  this.establecimientoService.crearEstablecimiento(this.establecimientoCreado).subscribe(
+    establecimiento => this.establecimientos.push(establecimiento)
+  );
 
 
   }

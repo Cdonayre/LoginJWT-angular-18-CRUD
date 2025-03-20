@@ -8,7 +8,7 @@ import { Ris, RisService } from '../../../services/ris.service';
   templateUrl: './mostrar-ris.component.html',
   styleUrl: './mostrar-ris.component.css'
 })
-export class MostrarRisComponent {
+export default class MostrarRisComponent {
 
   risService = inject(RisService);
   ris: Ris[]=[];

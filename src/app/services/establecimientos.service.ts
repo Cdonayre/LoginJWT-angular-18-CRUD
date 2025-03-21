@@ -27,7 +27,7 @@ export class EstablecimientosService {
         })
       };
     }
-  
+   
   
     public getEstablecimientos():Observable<any>{
       return this.http.get(this.URLbase, this.getHttpOptions());  

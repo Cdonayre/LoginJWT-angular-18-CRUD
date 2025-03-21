@@ -1,29 +1,30 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { Esablecimientos, EstablecimientosService } from '../../../services/establecimientos.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
-
+import {MatTableModule,MatTableDataSource} from '@angular/material/table';
+import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-mostrar-establecimientos',
   standalone: true,
-  imports: [ CommonModule, MatSlideToggleModule ],
+  imports: [ CommonModule, MatSlideToggleModule,MatTableModule,MatPaginatorModule ],
   templateUrl: './mostrar-establecimientos.component.html',
   styleUrl: './mostrar-establecimientos.component.css',
-  template: `
-  <div>
-    <ngx-datatable [rows]="rows" [columns]="columns"> </ngx-datatable>
-  </div>
-`
 })
 export default class MostrarEstablecimientosComponent implements OnInit{
 
 
 
+
   establecimientoService = inject(EstablecimientosService);
   establecimientos: Esablecimientos[] = [];
+  //Datatable
+  displayedColumns: string []=['codigo','nombre'];
+  establecimientoDataSource = new MatTableDataSource<Esablecimientos>([]);
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  
   router = inject(Router);
   establecimientoCreado: any;
   constructor( ) {
@@ -31,6 +32,8 @@ export default class MostrarEstablecimientosComponent implements OnInit{
    this.establecimientoService.getEstablecimientos().subscribe({
     next: (datos:any) => {
     this.establecimientos = datos;
+    this.establecimientoDataSource = new MatTableDataSource<Esablecimientos>(datos);
+    this.establecimientoDataSource.paginator = this.paginator;
     }, 
     error:(err) =>{
       console.log(err);

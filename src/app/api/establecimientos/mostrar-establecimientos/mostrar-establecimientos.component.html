@@ -11,7 +11,7 @@
 
 </div>
 
-<div class="flex items-center sm:justify-center ml-4 sm:ml-0">
+<!-- <div class="flex items-center sm:justify-center ml-4 sm:ml-0">
   
   <div class="scroll-m-6 snap-start">
 
@@ -53,5 +53,30 @@
   </tbody>
 </table>
 </div>
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
-</div>
+</div> -->
+
+
+
+
+<table mat-table [dataSource]="establecimientoDataSource" class="mat-elevation-z8">
+
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+showFirstLastButtons
+aria-label="Select page of periodic elements">
+</mat-paginator>

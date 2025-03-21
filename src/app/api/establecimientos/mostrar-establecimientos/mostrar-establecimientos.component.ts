@@ -6,23 +6,21 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatTableModule,MatTableDataSource} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 
+
 @Component({
   selector: 'app-mostrar-establecimientos',
   standalone: true,
-  imports: [ CommonModule, MatSlideToggleModule,MatTableModule,MatPaginatorModule ],
+  imports: [ CommonModule, MatSlideToggleModule,MatTableModule,MatPaginatorModule,MatPaginator ],
   templateUrl: './mostrar-establecimientos.component.html',
   styleUrl: './mostrar-establecimientos.component.css',
 })
 export default class MostrarEstablecimientosComponent implements OnInit{
 
-
-
-
   establecimientoService = inject(EstablecimientosService);
   establecimientos: Esablecimientos[] = [];
   //Datatable
   displayedColumns: string []=['codigo','nombre'];
-  establecimientoDataSource = new MatTableDataSource<Esablecimientos>([]);
+  establecimientoDataSource = new MatTableDataSource<any>([]);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
   router = inject(Router);
@@ -32,7 +30,8 @@ export default class MostrarEstablecimientosComponent implements OnInit{
    this.establecimientoService.getEstablecimientos().subscribe({
     next: (datos:any) => {
     this.establecimientos = datos;
-    this.establecimientoDataSource = new MatTableDataSource<Esablecimientos>(datos);
+    //muestra los datos en el datatable
+    this.establecimientoDataSource = new MatTableDataSource<any>(datos);
     this.establecimientoDataSource.paginator = this.paginator;
     }, 
     error:(err) =>{
@@ -40,9 +39,9 @@ export default class MostrarEstablecimientosComponent implements OnInit{
     }
   });
 
-  this.establecimientoService.crearEstablecimiento(this.establecimientoCreado).subscribe(
-    establecimiento => this.establecimientos.push(establecimiento)
-  );
+  // this.establecimientoService.crearEstablecimiento(this.establecimientoCreado).subscribe(
+  //   establecimiento => this.establecimientos.push(establecimiento)
+  // );
 
 
   }

@@ -1,18 +1,18 @@
-<div class="overflow-x-auto">
-    <table class="min-w-full bg-white">
-      <thead>
-        <tr>
-          <th class="px-4 py-2 bg-gray-200 text-gray-600 border-b border-gray-300 text-left text-sm uppercase font-semibold">
+<div class="container">
+	<table class="text-center w-full">
+		<thead class="bg-blue-950 flex text-white w-full">
+			<tr class="flex w-full mb-4">
+          <th class="p-4 w-1/4">
             ID
           </th>
-          <th class="px-4 py-2 bg-gray-200 text-gray-600 border-b border-gray-300 text-left text-sm uppercase font-semibold">
+          <th class="p-4 w-1/4">
             Nombre
           </th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="bg-white text-black flex flex-col items-center justify-between overflow-y-scroll w-full" style="height: 50vh;">
           @for (distrito of distritos; track $index){
-        <tr>
+        <tr class="flex w-full mb-4">
           <th class="px-4 py-2 border-b border-gray-300">{{distrito.id}}</th>
           <td class="px-4 py-2 border-b border-gray-300">{{distrito.nombre}}</td>
         </tr>

@@ -1,6 +1,4 @@
-
-  
-  <div class="container">
+<div class="container">
     <nav class="navbar navbar-expand-lg navbar-dark bg-info">
       <div class="container-fluid">
         <button class="btn btn-primary my-2 my-sm-0"  type="submit">
@@ -8,75 +6,27 @@
         </button>
       </div>
     </nav>
+  </div>
+  <div class="flex items-end justify-self-center overflow-scroll">
+    <table mat-table [dataSource]="establecimientoDataSource" class="mat-elevation-z8 table-fixed content-center border-collapse border border-black-500 text-center text-wrap">
+      <thead class="bg-blue-950 flex text-white w-full">
+        <ng-container matColumnDef="codigo">
+          <th class="border bg-blue-950 border-slate-600 md:w-1/4 lg:w-1/6 xl:w-1/8" mat-header-cell *matHeaderCellDef> Codigo </th>
+          <td class="px-2 py-1 border-b border border-slate-600 text-xs" mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+        </ng-container>
 
-</div>
+        <ng-container matColumnDef="nombre">
+          <th class="border border-slate-600 md:w-1/4 lg:w-1/6 xl:w-1/8" mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td class="px-2 py-1 border-b border border-slate-600 text-xs" mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+        
+        <tr class="px-2 py-1 border-b border border-slate-600 text-xs" mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr class="px-2 py-1 border-b border border-slate-600 text-xs" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </thead>
+    </table>
+  </div>
 
-<!-- <div class="flex items-center sm:justify-center ml-4 sm:ml-0">
-  
-  <div class="scroll-m-6 snap-start">
-
-    <table class="table-fixed content-center border-collapse border border-slate-500 text-center text-wrap">
-      <thead>
-        <tr>
-        <th class="border border-slate-600">
-          <span>
-            IPRESS
-          </span>
-        </th>
-        <th class="border border-slate-600">
-          <span>
-            Nombre
-          </span>
-        </th>
-        <th class="border border-slate-600">
-          <span>
-                  Acciones
-                </span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (establecimiento of establecimientos; track $index){
-      <tr>
-        <th class="px-2 py-1 border-b border border-slate-600 text-sm">{{establecimiento.codigo}}</th>
-        <td class="px-2 py-1 border-b border border-slate-600 text-xs">{{establecimiento.nombre}}</td>
-        <td class="px-2 py-1 border-b border border-slate-600">
-          <button class="text-xstransition ease-in-out delay-150 bg-blue-500 hover:bg-blue-700 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-10 text-white font-bold py-1 px-2 rounded text-xs">
-            Editar
-          </button>
-          <button class="text-xs cursor-not-allowed bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded text-xs ml-1">
-            Eliminar
-          </button>
-        </td>
-      </tr>
-    }
-  </tbody>
-</table>
-</div>
-</div> -->
-
-
-
-
-<table mat-table [dataSource]="establecimientoDataSource" class="mat-elevation-z8">
-
-
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
-
-
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+<mat-paginator [pageSizeOptions]="[7, 10, 20]"
 showFirstLastButtons
 aria-label="Select page of periodic elements">
 </mat-paginator>

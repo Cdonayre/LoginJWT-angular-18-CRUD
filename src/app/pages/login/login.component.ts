@@ -1,13 +1,8 @@
 import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDividerModule } from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import { Router, RouterModule } from '@angular/router';
-import {merge} from 'rxjs';
 import { AuthService } from '../../auth/auth.service';
 
 @Component({

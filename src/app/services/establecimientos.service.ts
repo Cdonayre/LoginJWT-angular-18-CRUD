@@ -37,12 +37,12 @@ export class EstablecimientosService {
       return this.http.get(this.URLbase+'/'+id, this.getHttpOptions());
     }
 
-    public crearEstablecimiento(establecimiento: Esablecimientos):Observable<Esablecimientos>{
+    public crearEstablecimiento(establecimiento: Partial<Esablecimientos>, NgForm: unknown):Observable<any>{
       return this.http.post<Esablecimientos>(this.URLbase, establecimiento, this.getHttpOptions());
     }
 
-    public updateEstablecimiento(establecimiento: Esablecimientos):Observable<any>{
-      return this.http.put(this.URLbase+'/'+establecimiento.categoria_id, establecimiento, this.getHttpOptions());
+    public updateEstablecimiento(id:any, establecimiento: Esablecimientos):Observable<any>{
+      return this.http.put<Esablecimientos>(this.URLbase+'/'+id, establecimiento, this.getHttpOptions());
     }
     public deleteEstablecimiento(id:number):Observable<any>{
       return this.http.delete(this.URLbase+'/'+id, this.getHttpOptions());

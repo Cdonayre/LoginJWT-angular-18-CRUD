@@ -32,7 +32,6 @@ export class AuthService {
     localStorage.removeItem('authUser');
   }
   
-  
   isLoggedIn(){
     return localStorage.getItem('authUser') !== null;
   }
